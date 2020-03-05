@@ -14,11 +14,11 @@ import {
 
 export default function ToDo(props) {
   return (
-    <TouchableHighlight onPress={props.method}>
+    
         <View style={styles.container}>
         <Text>{props.text}</Text>
         </View>
-    </TouchableHighlight>
+    
   );
 }
 
