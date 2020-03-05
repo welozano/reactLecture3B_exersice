@@ -31,10 +31,6 @@ export default class App extends React.Component {
     //let todosCopy = this.state.todos - Might not work
     //this.state.todos.push() kinda like this.state.x = 5 - Definitely not work
     
-    todosCopy.push(this.state.text);
-
-    this.setState({todos: todosCopy, text: ""});
-    
     // 1. This function should add whatever is in this.state.text
     // to this.state.todos. Then clear text to allow a new todo
     // to be added
@@ -46,13 +42,7 @@ export default class App extends React.Component {
 
   // 3.1 Add a function to delete an item from todos given its
   // index
-  deleteTodo = index => {
-    alert(index);
-    let todosCopy = JSON.parse(JSON.stringify(this.state.todos));
-    todosCopy.splice(index, 1);
-    
-    this.setState({todos: todosCopy, text: ""});
-  }
+  
 
   render() {
     return (
@@ -73,25 +63,20 @@ export default class App extends React.Component {
 
         */}
         <FlatList
-          data={this.state.todos}
-          renderItem={( { item, index } ) => (
-            <ToDo text={item} method={() => {this.deleteTodo(index)}}/>
-          )}
-          keyExtractor={(item, index) => {
-            index.toString();
-          }}
+          
+          
         />
         </View>
         <View style={{flexDirection: 'row'}}>
           <TextInput
             style={styles.textinput}
-            onChangeText={text => this.onChangeText(text)} /*What method should be called here? */
-            value={this.state.text} /*What should be in place of the empty string? */
+            onChangeText={text => alert(text)} /*What method should be called here? */
+            value={""} /*What should be in place of the empty string? */
           />
           <Button
             style={styles.button}
             title="Add"
-            onPress={this.addTodo} /*What should be called here? */
+            onPress={alert('hola')} /*What should be called here? */
           />
         </View>
         
